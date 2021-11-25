@@ -1,38 +1,108 @@
+* {
+  margin: 0;
+  background-color: #039ffc;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+label > input {
+  margin: 0 auto;
+}
+form > p {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  margin-top: 7px;
+  background-color: #fc6003;
+  font-weight: 600;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+form {
+  background-color: #fc6003;
+  padding-top: 5px;
+  height: 90px;
+  z-index: 1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+label > input {
+  -moz-border-radius-bottomright: 30px;
+  -webkit-border-bottom-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  -moz-border-radius-bottomleft: 30px;
+  -webkit-border-bottom-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border: 3px solid #848484;
+  outline: 0;
+  height: 25px;
+  width: 275px;
+  padding: 20px;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 20px;
+  top: 3px;
+  box-sizing: border-box;
+  display: block;
+}
+
+.divTable {
+  display: table;
+  max-width: 20em;
+  float: right;
   display: flex;
-  flex-direction: column;
+
   align-items: center;
+}
+
+.divTableRow {
+  display: table-row;
+}
+
+.divTableHeading {
+  background-color: #eee;
+  display: table-header-group;
+  font-weight: bold;
+}
+
+.divTableCell,
+.divTableHead {
+  border: 1px solid #999999;
+  display: table-cell;
+  padding: 3px 10px;
+}
+
+.divTableFoot {
+  background-color: #eee;
+  display: table-footer-group;
+  font-weight: bold;
+}
+
+.divTableBody {
+  display: table-row-group;
+}
+
+.divTableCell:nth-child(1n) {
+  background-color: gainsboro;
+}
+
+.pokemon__container {
+  display: flex;
+  opacity: 0.9;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  z-index: 100;
 }
 
-.App-link {
-  color: #61dafb;
+img {
+  height: 216px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.background__spiral {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 60%;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }
