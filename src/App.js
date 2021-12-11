@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import './App.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Form, Container, Alert, Table,Image} from 'react-bootstrap';
 
 function App() {
   const [pokemon, setPokemon] = useState('pikachu');
@@ -12,7 +13,7 @@ function App() {
     const toArray = [];
     try{
       const baseURL = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
-      const res= await axios.get(baseURL)
+      const res = await axios.get(baseURL)
       toArray.push(res.data);
       setPokemonData(toArray);
       //console.log(toArray[0].types[0].type.name);
@@ -33,49 +34,51 @@ function App() {
     console.log(pokemonData);
   }
 
-  //useEffect for default load
+  //useEffect for default load(pikachu)
     useEffect(() => {
-    // Update the document title using the browser API
       getPokemon()
   },[]);
 
   return (
-    <div class = 'app__body'>
-      <form onSubmit={handleClick}>
-        <label>
-          <input type="text" onChange={handleChange} placeholder="Pikachu"/>
-         {/* <button type='submit' onClick={handleClick}>Search</button> */}
-        </label>
-        <p>Enter Pokemon name (e.g Squirtle, Raichu, Blastoise etc)</p>
-      </form>
+    <div class = 'app__body bg-light'>
+      <Form className='bg-danger' onSubmit={handleClick}>
+        <Form.Group className="mb-3">
+          <Form.Label>
+           <Form.Control className='form__input center-block' type="text" onChange={handleChange}  onFocus={(e) => e.target.placeholder = ""}  placeholder="Pikachu" fluid/>
+           {/* <button type='submit' onClick={handleClick}>Search</button> */}
+          </Form.Label>
+          <Alert variant={'danger'}>Enter Pokemon name (e.g Squirtle, Raichu, Blastoise etc)</Alert>
+        </Form.Group>
+      </Form>
       {pokemonData.map((data)=>{
         return(
           <div className = 'pokemon__container'>
-            <img src={data.sprites["front_default"]} alt="" />
-            <div className="divTable">
-              <div className="divTableBody">
-                <div className="divTableRow">
-                  <div className="divTableCell">Type</div>
-                  <div className="divTableCell">{pokemonType}</div>
-                </div>
-                <div className="divTableRow">
-                  <div className="divTableCell">Height</div>
-                  <div className="divTableCell">{data.height}</div>
-                </div>
-                <div className="divTableRow">
-                  <div className="divTableCell">Weight</div>
-                  <div className="divTableCell">{data.weight}</div>
-                </div>
-                <div className="divTableRow">
-                  <div className="divTableCell">Number of Battle</div>
-                  <div className="divTableCell">{data.game_indices.length}</div>
-                </div>
-              </div>
-            </div>
-            
+            <Image style={{height:'13.5rem', marginBottom:'2rem'}} src={data.sprites["front_default"]} alt="Pikachu" thumbnail/>
+            <Table striped bordered hover >
+              {/*<div className="divTableBody"></div>*/}
+              <tbody>
+                <tr>
+                  <th>Type</th>
+                  <th>{pokemonType}</th>
+                </tr>
+                <tr>
+                  <th>Height</th>
+                  <th>{data.height}</th>
+                </tr>
+                <tr>
+                  <th>Weight</th>
+                  <th>{data.weight}</th>
+                </tr>
+                <tr>
+                  <th>Number of Battle</th>
+                  <th>{data.game_indices.length}</th>
+                </tr>
+              </tbody>
+            </Table>
           </div>
         )
-      })}  
+      })}
+
      {/* <img className='background__spiral' src="https://sg.portal-pokemon.com/play/resources/pokedex/img/pokemon_list_bg.png" alt="" /> */}
     
     </div>

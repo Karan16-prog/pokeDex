@@ -1,108 +1,17 @@
 * {
   margin: 0;
-  background-color: #039ffc;
-}
-
-.App {
+  padding: 0;
   text-align: center;
+  font-size: 16px;
 }
 
-label > input {
-  margin: 0 auto;
-}
-form > p {
-  text-align: center;
-  font-family: "Courier New", Courier, monospace;
-  margin-top: 7px;
-  background-color: #fc6003;
-  font-weight: 600;
+Form {
+  margin-bottom: 1rem;
 }
 
-form {
-  background-color: #fc6003;
-  padding-top: 5px;
-  height: 90px;
-  z-index: 1;
-}
-
-label > input {
-  -moz-border-radius-bottomright: 30px;
-  -webkit-border-bottom-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  -moz-border-radius-bottomleft: 30px;
-  -webkit-border-bottom-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-  border: 3px solid #848484;
-  outline: 0;
-  height: 25px;
-  width: 275px;
-  padding: 20px;
-  text-align: center;
-  font-family: "Courier New", Courier, monospace;
-  font-weight: bold;
-  font-size: 20px;
-  top: 3px;
-  box-sizing: border-box;
-  display: block;
-}
-
-.divTable {
-  display: table;
-  max-width: 20em;
-  float: right;
-  display: flex;
-
-  align-items: center;
-}
-
-.divTableRow {
-  display: table-row;
-}
-
-.divTableHeading {
-  background-color: #eee;
-  display: table-header-group;
-  font-weight: bold;
-}
-
-.divTableCell,
-.divTableHead {
-  border: 1px solid #999999;
-  display: table-cell;
-  padding: 3px 10px;
-}
-
-.divTableFoot {
-  background-color: #eee;
-  display: table-footer-group;
-  font-weight: bold;
-}
-
-.divTableBody {
-  display: table-row-group;
-}
-
-.divTableCell:nth-child(1n) {
-  background-color: gainsboro;
-}
-
-.pokemon__container {
-  display: flex;
-  opacity: 0.9;
-  justify-content: center;
-  z-index: 100;
-}
-
-img {
-  height: 216px;
-}
-
-.background__spiral {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  max-width: 60%;
-  height: auto;
-  transform: translate(-50%, -50%);
-  z-index: -1;
+.form__input {
+  position: relative;
+  font-size: 21px !important;
+  top: 0.25rem;
+  padding: 0.75rem 2.5rem !important;
 }
